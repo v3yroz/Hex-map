@@ -54,14 +54,13 @@ public class TileSpawner : MonoBehaviour {
 
                 newTile.AddComponent<Tile>();
                 Tile tileScript = newTile.GetComponent<Tile>();
-                tileScript.ConfigTile(i - 1, j - 1);
 
                 tileScript.AddMaterials(defaultMaterial, highlightedMaterial, neighbourMaterial);
 
 
                 tileList.Add(newTile);
                 newTile.transform.position = new Vector3(currentSpawnPoint.x, currentSpawnPoint.y, currentSpawnPoint.z);
-
+                tileScript.ConfigTile(i - 1, j - 1, tileCounter);
 
                 currentSpawnPoint.z += tileSizeY / 2 + tileOffset;
                 tileCounter++;
