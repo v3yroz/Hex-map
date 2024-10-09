@@ -30,18 +30,35 @@ public class Controller : MonoBehaviour {
 
                     if (tileScript.GetX() % 2 == 0 || tileScript.GetX() == 0) {
 
-                        if ((tileScript.GetX() == tileX - 1 || tileScript.GetX() == tileX) && (tileScript.GetY() == tileY - 1 || tileScript.GetY() == tileY + 1 || tileScript.GetY() == tileY)) {
+                        if (tileScript.GetX() == tileX - 1 || tileScript.GetX() == tileX + 1) {
 
-                            tileScript.SetNeighbour(true);
+                            if (tileScript.GetY() == tileY + 1 || tileScript.GetY() == tileY) {
+
+                                tileScript.SetNeighbour(true);
+                            }
+                        } else if (tileScript.GetX() == tileX) {
+
+                            if (tileScript.GetY() == tileY + 1 || tileScript.GetY() == tileY - 1) {
+
+                                tileScript.SetNeighbour(true);
+                            }
                         }
 
                     } else {
 
-                        if ((tileScript.GetX() == tileX - 1 || tileScript.GetX() == tileX + 1 || tileScript.GetX() == tileX) && (tileScript.GetY() == tileY - 1 || tileScript.GetY() == tileY)) {
+                        if (tileScript.GetX() == tileX - 1 || tileScript.GetX() == tileX + 1) {
 
-                            tileScript.SetNeighbour(true);
+                            if (tileScript.GetY() == tileY - 1 || tileScript.GetY() == tileY) {
+
+                                tileScript.SetNeighbour(true);
+                            }
+                        } else if (tileScript.GetX() == tileX) {
+
+                            if (tileScript.GetY() == tileY + 1 || tileScript.GetY() == tileY - 1) {
+
+                                tileScript.SetNeighbour(true);
+                            }
                         }
-
                     }
                 }
             }

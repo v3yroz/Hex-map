@@ -14,7 +14,14 @@ public class CameraDrag : MonoBehaviour {
             var newPosition = new Vector3();
             newPosition.x = Input.GetAxis("Mouse X") * dragSpeed * Time.deltaTime;
             newPosition.y = Input.GetAxis("Mouse Y") * dragSpeed * Time.deltaTime;
+
             transform.Translate(-newPosition);
         }  
+    }
+
+    public void SetInitialCameraPosition(Vector2 rtCorner) {
+
+        Vector3 startPoint = new Vector3(rtCorner.x / 2, 50f, rtCorner.y / 2);
+        transform.position = startPoint;
     }
 }

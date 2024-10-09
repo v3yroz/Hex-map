@@ -77,6 +77,7 @@ public class Tile : MonoBehaviour {
             Vector3 newLocation = Vector3.Lerp(currentLocation, targetLocation, ascendingValue);
 
             gameObject.transform.position = newLocation;
+            t.transform.localPosition = newLocation;
 
             if (targetLocation == currentLocation) {
 
@@ -91,6 +92,7 @@ public class Tile : MonoBehaviour {
             Vector3 newLocation = Vector3.Lerp(currentLocation, defaultLocation, ascendingValue);
 
             gameObject.transform.position = newLocation;
+            t.transform.localPosition = newLocation;
 
             if (currentLocation == defaultLocation) {
 

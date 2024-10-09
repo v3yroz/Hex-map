@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TileSpawner : MonoBehaviour {
 
+    [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject tile;
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material highlightedMaterial;
@@ -12,6 +13,7 @@ public class TileSpawner : MonoBehaviour {
     [SerializeField] private float maxTilesX;
     [SerializeField] private float maxTilesY;
 
+    private CameraDrag cameraScript;
     private Vector3 currentSpawnPoint;
     private int tileCounter = 0;
     private MeshRenderer meshRenderer;
@@ -21,6 +23,8 @@ public class TileSpawner : MonoBehaviour {
     private float tileSizeY;
 
     void Start() {
+
+        cameraScript = mainCamera.GetComponent<CameraDrag>();
         
         meshRenderer = tile.GetComponent<MeshRenderer>();
         tileMesh = tile.GetComponent<MeshFilter>().sharedMesh;
@@ -30,6 +34,8 @@ public class TileSpawner : MonoBehaviour {
 
         tileList = new List<GameObject>();
         currentSpawnPoint = new Vector3(0, 1, 0);
+
+        Vector2 rtCorner = new Vector2();
 
         for (int i = 1; i <= maxTilesX; i++) {
 
@@ -63,6 +69,13 @@ public class TileSpawner : MonoBehaviour {
                 tileScript.ConfigTile(i - 1, j - 1, tileCounter);
 
                 currentSpawnPoint.z += tileSizeY / 2 + tileOffset;
+
+                if (i == maxTilesX && j == maxTilesY) {
+
+                    rtCorner.x = currentSpawnPoint.x;
+                    rtCorner.y = currentSpawnPoint.z;
+                }
+
                 tileCounter++;
             }
 
@@ -76,6 +89,8 @@ public class TileSpawner : MonoBehaviour {
             }
 
         }
+
+        cameraScript.SetInitialCameraPosition(rtCorner);
     }
 
     public List<GameObject> GetList() {
