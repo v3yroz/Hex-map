@@ -6,7 +6,8 @@ public class CameraDrag : MonoBehaviour {
 
     [SerializeField] private float dragSpeed = 2;
 
-
+    //Tu się kamera przesuwa
+    
     public void Update() {
 
         if (Input.GetMouseButton(1)) {

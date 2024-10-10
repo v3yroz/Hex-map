@@ -32,6 +32,8 @@ public class Tile : MonoBehaviour {
 
     public void Update() {
 
+        //Jeśli kafelek został podświetlony w Controllerze to tutaj się podnosi i zmienia materiał
+
         var meshRenderer = gameObject.GetComponent<MeshRenderer>();
 
         if (highlighted || neighbour) {
@@ -106,6 +108,7 @@ public class Tile : MonoBehaviour {
         neighbour = false;
     }
 
+    //Tutaj się konfiguruje kafelek i tekst po zainicjowaniu w TileSpawnerze
     public void ConfigTile(int x, int y, int tileNumber) {
 
         this.x = x;

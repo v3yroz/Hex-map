@@ -9,6 +9,8 @@ public class Controller : MonoBehaviour {
 
     public void Update() {
 
+        //Skrypt do myszki żeby podświetliło kafelek i sąsiadów
+
         Ray ray = mainCamera.ScreenPointToRay (Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast (ray, out hit, 100)) {

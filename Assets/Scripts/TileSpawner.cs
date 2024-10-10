@@ -37,6 +37,8 @@ public class TileSpawner : MonoBehaviour {
 
         Vector2 rtCorner = new Vector2();
 
+        //Tworzenie kafelków, dodawanie do nich skryptów, rendererów i materiałów i dodawanie ich do listy
+
         for (int i = 1; i <= maxTilesX; i++) {
 
             for (int j = 1; j <= maxTilesY; j++) {
